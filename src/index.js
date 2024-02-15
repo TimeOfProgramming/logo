@@ -1,5 +1,5 @@
 import Environment from "./components/environment.js";
-import * as THREE from "../node_modules/three/build/three.module.js";
+import * as THREE from "../three/build/three.module.js";
 
 const preload = () => {
   let manager = new THREE.LoadingManager();
