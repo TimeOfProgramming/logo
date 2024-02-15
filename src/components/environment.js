@@ -43,6 +43,7 @@ class Environment {
   }
 
   createRenderer() {
+    // this.renderer.setClearColor(0xffffff);
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(
       this.container.clientWidth,
@@ -50,6 +51,8 @@ class Environment {
     );
 
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    this.renderer.setClearColor(0x222222);
 
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.container.appendChild(this.renderer.domElement);

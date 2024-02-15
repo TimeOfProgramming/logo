@@ -51,3 +51,6 @@ a {
   text-decoration: none;
 }
 
+canvas {
+  background-color: #ffffff; /* Задайте желаемый цвет фона */
+}
