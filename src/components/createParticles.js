@@ -18,11 +18,11 @@ class CreateParticles {
 
     this.data = {
       text: "NUDE",
-      amount: 1500,
-      particleSize: 1,
+      amount: 1400,
+      particleSize: 2,
       particleColor: 0xffffff,
-      textSize: 16,
-      area: 250,
+      textSize: 14,
+      area: 100,
       ease: 0.05,
     };
 
@@ -39,6 +39,7 @@ class CreateParticles {
       color: 0x00ff00,
       transparent: true,
     });
+
     this.planeArea = new THREE.Mesh(geometry, material);
     this.planeArea.visible = false;
     this.createText();
@@ -55,10 +56,8 @@ class CreateParticles {
     const timeSinceLastTap = currentTime - this.lastTapTime;
 
     if (timeSinceLastTap < 300) {
-      // Если прошло менее 300 миллисекунд с предыдущего тапа, это двойной тап
       this.onDoubleTap(event);
     } else {
-      // Иначе, запоминаем время текущего тапа для будущего сравнения
       this.lastTapTime = currentTime;
     }
   }
@@ -289,7 +288,7 @@ class CreateParticles {
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
-        color: { value: new THREE.Color(0xffffff) },
+        color: { value: new THREE.Color(0x800080) },
         pointTexture: { value: this.particleImg },
       },
       vertexShader: document.getElementById("vertexshader").textContent,
