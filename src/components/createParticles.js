@@ -7,6 +7,7 @@ class CreateParticles {
     this.particleImg = particleImg;
     this.camera = camera;
     this.renderer = renderer;
+    this.lastTapTime = 0;
 
     this.raycaster = new THREE.Raycaster();
     this.mouse = new THREE.Vector2(-200, 200);
@@ -50,6 +51,19 @@ class CreateParticles {
   }
 
   onTouchStart(event) {
+    const currentTime = new Date().getTime();
+    const timeSinceLastTap = currentTime - this.lastTapTime;
+
+    if (timeSinceLastTap < 300) {
+      // Если прошло менее 300 миллисекунд с предыдущего тапа, это двойной тап
+      this.onDoubleTap(event);
+    } else {
+      // Иначе, запоминаем время текущего тапа для будущего сравнения
+      this.lastTapTime = currentTime;
+    }
+  }
+
+  onDoubleTap(event) {
     this.mouse.x = (event.touches[0].clientX / window.innerWidth) * 2 - 1;
     this.mouse.y = -(event.touches[0].clientY / window.innerHeight) * 2 + 1;
 
