@@ -9,11 +9,11 @@ const preload = () => {
 
   var typo = null;
   const loader = new THREE.FontLoader(manager);
-  const font = loader.load("/src/font/font.json", function (font) {
+  const font = loader.load("/logo/src/font/font.json", function (font) {
     typo = font;
   });
   const particle = new THREE.TextureLoader(manager).load(
-    "/src/textures/particle_a64uzf.png"
+    "/logo/src/textures/particle_a64uzf.png"
   );
 };
 
